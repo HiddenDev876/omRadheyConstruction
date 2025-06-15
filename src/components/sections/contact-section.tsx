@@ -1,8 +1,8 @@
 // @/components/sections/contact-section.tsx
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
+import { useEffect, useState, useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,7 +30,7 @@ function SubmitButton() {
 }
 
 export function ContactSection() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const { toast } = useToast();
 
@@ -39,7 +39,7 @@ export function ContactSection() {
       setIsSuccessDialogOpen(true);
       const form = document.getElementById("contact-form") as HTMLFormElement;
       if(form) form.reset(); 
-      // The useFormState `state` will clear on next submission.
+      // The useActionState `state` will clear on next submission.
     } else if (state?.message && state?.errors) {
        toast({
         variant: "destructive",

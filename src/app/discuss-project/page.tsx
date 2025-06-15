@@ -1,8 +1,8 @@
 // src/app/discuss-project/page.tsx
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useState, FormEvent } from "react";
+import { useFormStatus } from "react-dom";
+import { useEffect, useState, useActionState } from "react"; // Updated import
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,7 +13,7 @@ import { Send, Loader2, CheckCircle, Building } from "lucide-react";
 import { submitContactForm } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs"; // Added Breadcrumbs
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 const initialState = {
   message: null,
@@ -32,7 +32,7 @@ function SubmitButton() {
 }
 
 export default function DiscussProjectPage() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState); // Updated hook
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const { toast } = useToast();
 
