@@ -6,13 +6,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Mail, Phone, Building2 } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const navLinks = [
   { href: "/#hero", label: "Home" },
   { href: "/#about", label: "About Us" },
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
-  { href: "/#team", label: "Team" },
+  { href: "/team", label: "Team" }, // Updated link
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -64,23 +65,25 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 items-center">
+          <nav className="hidden md:flex space-x-4 items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground hover:text-primary transition-colors font-medium text-sm"
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="/#contact">Get a Quote</Link>
+            <ModeToggle />
+            <Button asChild variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground text-sm">
+              <Link href="/discuss-project">Get a Quote</Link>
             </Button>
           </nav>
 
           {/* Mobile Navigation Trigger */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <ModeToggle />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -89,12 +92,11 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
-                <div className="flex justify-start items-center mb-8"> {/* Adjusted to remove explicit close button, SheetContent provides its own */}
+                <div className="flex justify-start items-center mb-8">
                  <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
                     <Building2 className="h-8 w-8 text-primary" />
                     <span className="text-lg font-headline font-semibold text-primary">{companyName}</span>
                   </Link>
-                  {/* The SheetContent component itself provides a close button, so the explicit one here was removed. */}
                 </div>
                 <nav className="flex flex-col space-y-4">
                   {navLinks.map((link) => (
@@ -108,9 +110,8 @@ export function Navbar() {
                     </Link>
                   ))}
                   <Button asChild variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground mt-4 w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Link href="/#contact">Get a Quote</Link>
+                    <Link href="/discuss-project">Get a Quote</Link>
                   </Button>
-                   {/* Mobile Top Bar Info */}
                   <div className="mt-8 border-t pt-4 space-y-2 text-sm text-muted-foreground">
                      <a href={`mailto:${email}`} className="flex items-center hover:text-primary transition-colors">
                         <Mail size={14} className="mr-2" />

@@ -90,15 +90,10 @@ export function ProjectsGallery() {
 
         <div className="mt-12 md:mt-16 text-center animate-slide-in-from-bottom" style={{animationDelay: `${0.3 + projects.length * 0.1}s`}}>
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-md shadow-md">
-            <Link href="/#contact">Discuss Your Project</Link>
+            <Link href="/discuss-project">Discuss Your Project</Link>
           </Button>
         </div>
       </div>
     </section>
   );
 }
-
-// Basic project detail page structure (can be expanded later)
-// Create src/app/projects/[id]/page.tsx for this if needed.
-// For now, links will go to /projects/ID, which will 404 unless page is created.
-// A placeholder can be added later.

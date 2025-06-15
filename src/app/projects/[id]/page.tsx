@@ -40,7 +40,39 @@ const projectsData: { [key: string]: any } = {
     services: ["Foundation Work", "High-Rise Construction", "Facade Engineering", "MEP Services"],
     hint: "office tower"
   },
-  // Add more projects if needed, matching IDs from ProjectsGallery
+  "3": {
+    id: "3",
+    title: "Community Shopping Mall",
+    description: "A vibrant shopping mall providing a diverse retail and entertainment experience, completed with modern amenities.",
+    longDescription: "This Community Shopping Mall project focused on creating a central hub for local residents. It features a wide array of retail outlets, a food court, a multiplex cinema, and ample parking. Special attention was given to accessibility and family-friendly facilities. The construction involved innovative techniques for large-span structures and energy-efficient HVAC systems. Om Radhey Construction successfully delivered this landmark project, enhancing the local community's lifestyle.",
+    image: "https://placehold.co/800x500.png",
+    images: [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+    ],
+    category: "Commercial",
+    status: "Completed",
+    duration: "30 Months",
+    services: ["Retail Space Planning", "Large-Scale Construction", "Entertainment Zone Setup", "Parking Management Systems"],
+    hint: "shopping mall"
+  },
+  "4": {
+    id: "4",
+    title: "Luxury Private Villa",
+    description: "Exquisite private villa with bespoke design and high-end finishes, offering unparalleled luxury and comfort.",
+    longDescription: "This Luxury Private Villa project was a masterpiece of bespoke design and meticulous craftsmanship. Nestled in a prime location, the villa boasts custom interiors, imported marble, smart home automation, a private pool, and landscaped gardens. Every detail was carefully considered to meet the client's discerning tastes. Om Radhey Construction ensured the highest level of quality and privacy throughout the construction process, delivering a truly exceptional residence.",
+    image: "https://placehold.co/800x500.png",
+    images: [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+    ],
+    category: "Residential",
+    status: "Completed",
+    duration: "18 Months",
+    services: ["Bespoke Architectural Design", "Luxury Interior Finishing", "Smart Home Integration", "Landscape Architecture"],
+    hint: "luxury home"
+  }
 };
 
 
@@ -134,7 +166,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 </Card>
                 
                 <Button asChild size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  <Link href="/#contact">Inquire About Similar Projects</Link>
+                  <Link href="/discuss-project">Inquire About Similar Projects</Link>
                 </Button>
               </div>
             </div>
@@ -165,9 +197,8 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
   );
 }
 
-// This function can be used if you plan to statically generate these pages
-// export async function generateStaticParams() {
-//   return Object.keys(projectsData).map((id) => ({
-//     id,
-//   }));
-// }
+export async function generateStaticParams() {
+  return Object.keys(projectsData).map((id) => ({
+    id,
+  }));
+}
