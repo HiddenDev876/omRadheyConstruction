@@ -44,7 +44,7 @@ const slidesData = [
   },
 ];
 
-const AUTOPLAY_INTERVAL = 7000; // 7 seconds
+const AUTOPLAY_INTERVAL = 5000; // Changed from 7000ms to 5000ms
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -82,7 +82,7 @@ export function HeroSection() {
           />
         ))}
       </div>
-      <div className="absolute inset-0 bg-black/40"></div> {/* Darker Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60"></div> {/* Darker Overlay: Changed from bg-black/40 to bg-black/60 */}
       
       <div className="relative container mx-auto px-4 text-center z-10">
         <div className="max-w-3xl mx-auto">
