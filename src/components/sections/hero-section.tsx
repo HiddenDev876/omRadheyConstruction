@@ -44,7 +44,7 @@ const slidesData = [
   },
 ];
 
-const AUTOPLAY_INTERVAL = 5000; // Changed from 7000ms to 5000ms
+const AUTOPLAY_INTERVAL = 3000; // Changed from 5000ms to 3000ms
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
