@@ -2,13 +2,14 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Mail, Phone, MapPin, MessageSquare, Send, Loader2 } from "lucide-react";
+import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
+import { Mail, Phone, MapPin, MessageSquare, Send, Loader2, CheckCircle } from "lucide-react";
 import { submitContactForm } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 
@@ -30,25 +31,22 @@ function SubmitButton() {
 
 export function ContactSection() {
   const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
-    if (state?.success) {
-      toast({
-        title: "Success!",
-        description: state.message,
-      });
-      // Optionally reset form here if not handled by useFormState clearing
+    if (state?.success && state.message) {
+      setIsSuccessDialogOpen(true);
       const form = document.getElementById("contact-form") as HTMLFormElement;
-      if(form) form.reset();
-
-    } else if (state?.message && state?.errors) { // Error with specific field issues
+      if(form) form.reset(); 
+      // The useFormState `state` will clear on next submission.
+    } else if (state?.message && state?.errors) {
        toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
         description: state.message,
       });
-    } else if (state?.message && !state.success && !state.errors) { // General error message
+    } else if (state?.message && !state.success && !state.errors) { 
        toast({
         variant: "destructive",
         title: "Error",
@@ -146,6 +144,24 @@ export function ContactSection() {
           </Card>
         </div>
       </div>
+      <AlertDialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center">
+              <CheckCircle className="h-6 w-6 text-green-500 mr-2" />
+              Message Sent Successfully!
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {state?.success && state.message ? state.message : "Your message has been sent. We will get back to you soon."}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setIsSuccessDialogOpen(false)} className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              OK
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 }
