@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,34 +51,33 @@ body {
   }
 
   .dark {
-    /* Keeping dark mode similar to original but ensuring readability */
-    --background: 215 28% 17%; /* Dark blue-gray */
+    --background: 215 28% 12%; /* Made darker */
     --foreground: 182 25% 90%; 
-    --card: 215 28% 22%;
+    --card: 215 28% 18%; /* Slightly lighter than new background */
     --card-foreground: 182 25% 90%;
-    --popover: 215 28% 22%;
+    --popover: 215 28% 18%;
     --popover-foreground: 182 25% 90%;
-    --primary: 15 83% 61%; /* Coral as primary in dark mode for pop */
+    --primary: 15 83% 61%; 
     --primary-foreground: 0 0% 10%;
-    --secondary: 182 50% 70%; /* Lighter teal for secondary */
-    --secondary-foreground: 215 28% 12%;
-    --muted: 215 28% 25%;
-    --muted-foreground: 182 25% 70%;
-    --accent: 3D5A80; /* Dark Slate Blue as accent in dark mode */
+    --secondary: 182 50% 65%; /* Slightly adjusted for visibility */
+    --secondary-foreground: 182 25% 95%; /* Ensured light text on secondary buttons */
+    --muted: 215 28% 22%; 
+    --muted-foreground: 182 25% 80%; /* Increased lightness */
+    --accent: 215 35% 45%; /* Adjusted from #3D5A80 for better dark mode fit */
     --accent-foreground: 182 25% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 215 28% 25%;
-    --input: 215 28% 25%;
-    --ring: 15 83% 61%; /* Coral for rings */
+    --border: 215 28% 22%; 
+    --input: 215 28% 22%; 
+    --ring: 15 83% 61%; 
     
-    --sidebar-background: 215 28% 12%;
+    --sidebar-background: 215 28% 10%; /* Darker sidebar */
     --sidebar-foreground: 182 25% 90%;
     --sidebar-primary: 15 83% 61%;
     --sidebar-primary-foreground: 0 0% 10%;
     --sidebar-accent: 215 28% 20%;
     --sidebar-accent-foreground: 182 25% 90%;
-    --sidebar-border: 215 28% 10%;
+    --sidebar-border: 215 28% 8%; /* Slightly darker than sidebar background */
     --sidebar-ring: 15 83% 61%;
   }
 }
