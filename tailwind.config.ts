@@ -100,7 +100,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': 'fade-in 0.5s ease-out',
+        'fade-in': 'fade-in 0.5s ease-out', // This is a general fade-in, you might not need specific delays in HTML anymore if content is dynamic
         'slide-in-from-bottom': 'slide-in-from-bottom 0.5s ease-out forwards',
       },
     },
