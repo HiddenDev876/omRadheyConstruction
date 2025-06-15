@@ -1,8 +1,7 @@
-// @/components/sections/experience-section.tsx
+// src/app/experience/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Star, UserCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Star, UserCircle, MessageSquareQuote } from "lucide-react";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 const testimonials = [
   {
@@ -26,18 +25,39 @@ const testimonials = [
     rating: 4,
     project: "Retail Store Construction"
   },
+  {
+    name: "Sunita Rao",
+    company: "Educational Trust",
+    testimonial: "We partnered with Om Radhey for our new school building. Their commitment to safety and quality was evident throughout. The facility is state-of-the-art.",
+    rating: 5,
+    project: "School Building Construction"
+  },
+  {
+    name: "Deepak Verma",
+    company: "Logistics Corp",
+    testimonial: "Our warehouse project was completed ahead of schedule, thanks to Om Radhey's efficient project management. Very satisfied with their work.",
+    rating: 4,
+    project: "Warehouse Development"
+  }
 ];
 
-export function ExperienceSection() {
+export default function ExperiencePage() {
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Client Experiences" },
+  ];
+
   return (
-    <section id="experience" className="py-16 md:py-24 bg-background">
+    <section id="experience-page" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
+        <Breadcrumbs items={breadcrumbItems} />
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-slide-in-from-bottom" style={{animationDelay: '0.1s'}}>
-            Client Experiences
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-slide-in-from-bottom" style={{animationDelay: '0.2s'}}>
-            Hear what our valued clients have to say about their journey with Om Radhey Construction.
+          <MessageSquareQuote className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">
+            What Our Clients Say
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            We take pride in the positive feedback from our clients. Read about their experiences partnering with Om Radhey Construction for their projects.
           </p>
         </div>
 
@@ -45,8 +65,7 @@ export function ExperienceSection() {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col bg-card animate-slide-in-from-bottom"
-              style={{animationDelay: `${0.3 + index * 0.1}s`}}
+              className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col bg-card"
             >
               <CardHeader>
                 <div className="flex items-center mb-2">
@@ -76,11 +95,6 @@ export function ExperienceSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-        <div className="mt-12 md:mt-16 text-center animate-slide-in-from-bottom" style={{animationDelay: `${0.3 + testimonials.length * 0.1}s`}}>
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-md shadow-md">
-            <Link href="/experience">View All Testimonials</Link>
-          </Button>
         </div>
       </div>
     </section>

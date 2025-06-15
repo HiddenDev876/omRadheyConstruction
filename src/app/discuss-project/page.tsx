@@ -2,7 +2,7 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +13,7 @@ import { Send, Loader2, CheckCircle, Building } from "lucide-react";
 import { submitContactForm } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs"; // Added Breadcrumbs
 
 const initialState = {
   message: null,
@@ -55,9 +56,15 @@ export default function DiscussProjectPage() {
     }
   }, [state, toast]);
 
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Discuss Your Project" },
+  ];
+
   return (
     <div className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
+        <Breadcrumbs items={breadcrumbItems} />
         <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
                 <Building className="h-12 w-12 text-primary mx-auto mb-4" />

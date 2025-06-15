@@ -1,7 +1,10 @@
 // @/components/sections/team-section.tsx
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Linkedin, Twitter, Briefcase } from "lucide-react"; // Added Briefcase for role
+import { Linkedin, Twitter, Briefcase } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 
 const teamMembers = [
   {
@@ -90,6 +93,11 @@ export function TeamSection() {
               </CardContent>
             </Card>
           ))}
+        </div>
+         <div className="mt-12 md:mt-16 text-center animate-slide-in-from-bottom" style={{animationDelay: `${0.3 + teamMembers.length * 0.1}s`}}>
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-md shadow-md">
+            <Link href="/team">Meet The Entire Team</Link>
+          </Button>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Linkedin, Twitter, Briefcase, Users } from "lucide-react"; 
+import { Breadcrumbs } from "@/components/layout/breadcrumbs"; // Added Breadcrumbs
 
 const teamMembers = [
   {
@@ -55,9 +56,15 @@ const teamMembers = [
 ];
 
 export default function TeamPage() {
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Our Team" },
+  ];
+
   return (
     <section id="team-page" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
+        <Breadcrumbs items={breadcrumbItems} />
         <div className="text-center mb-12 md:mb-16">
           <Users className="h-12 w-12 text-primary mx-auto mb-4" />
           <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">

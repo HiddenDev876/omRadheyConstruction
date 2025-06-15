@@ -1,9 +1,10 @@
 // src/app/projects/[id]/page.tsx
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronLeft, CheckCircle, CalendarDays, HardHat } from "lucide-react";
+import { CheckCircle, CalendarDays, HardHat } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs"; // Added Breadcrumbs
 
 // This is mock data. In a real app, you'd fetch this based on `params.id`.
 const projectsData: { [key: string]: any } = {
@@ -80,27 +81,30 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
   const project = projectsData[params.id];
 
   if (!project) {
+    const notFoundBreadcrumbItems = [
+        { label: "Home", href: "/" },
+        { label: "Project Not Found" }
+    ];
     return (
       <div className="container mx-auto px-4 py-16 text-center">
+        <Breadcrumbs items={notFoundBreadcrumbItems} className="justify-center"/>
         <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
         <p className="mb-8">The project you're looking for doesn't exist or has been moved.</p>
-        <Button asChild>
-          <Link href="/#projects">
-            <ChevronLeft className="mr-2 h-4 w-4" /> Back to Projects
-          </Link>
-        </Button>
+        {/* The Back button is now part of Breadcrumbs */}
       </div>
     );
   }
 
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Projects", href: "/#projects" },
+    { label: project.title },
+  ];
+
   return (
     <div className="bg-secondary/30 py-12 md:py-20">
       <div className="container mx-auto px-4">
-        <Button asChild variant="outline" className="mb-8 group">
-          <Link href="/#projects">
-            <ChevronLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Projects
-          </Link>
-        </Button>
+        <Breadcrumbs items={breadcrumbItems} /> {/* Replaced old back button */}
 
         <Card className="shadow-xl overflow-hidden">
           <CardHeader className="p-0 relative">
