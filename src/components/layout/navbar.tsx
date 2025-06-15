@@ -1,3 +1,4 @@
+
 // @/components/layout/navbar.tsx
 "use client";
 
@@ -9,12 +10,12 @@ import { Menu, Mail, Phone, Building2 } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const navLinks = [
-  { href: "/#hero", label: "Home" },
-  { href: "/#about", label: "About Us" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/experience", label: "Experiences" }, // Updated link
+  { href: "/", label: "Home" }, // Changed from /#hero
+  { href: "/about", label: "About Us" }, // Changed from /#about
+  { href: "/projects", label: "Projects" }, // Changed from /#projects
+  { href: "/experience", label: "Experiences" },
   { href: "/team", label: "Team" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" }, // Assuming contact remains a section on home page
 ];
 
 export function Navbar() {

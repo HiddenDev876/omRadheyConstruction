@@ -1,10 +1,11 @@
+
 // src/app/projects/[id]/page.tsx
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, CalendarDays, HardHat } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs"; // Added Breadcrumbs
+import { Breadcrumbs } from "@/components/layout/breadcrumbs"; 
 
 // This is mock data. In a real app, you'd fetch this based on `params.id`.
 const projectsData: { [key: string]: any } = {
@@ -73,6 +74,39 @@ const projectsData: { [key: string]: any } = {
     duration: "18 Months",
     services: ["Bespoke Architectural Design", "Luxury Interior Finishing", "Smart Home Integration", "Landscape Architecture"],
     hint: "luxury home"
+  },
+  "5": {
+    id: "5",
+    title: "Industrial Warehouse Facility",
+    description: "A large-scale industrial warehouse designed for optimal logistics and storage solutions.",
+    longDescription: "This project involved the construction of a 100,000 sq ft industrial warehouse. Key features include reinforced concrete flooring, high-clearance ceilings, multiple loading docks, and an advanced fire suppression system. The facility is designed to accommodate heavy machinery and large-scale storage operations. Om Radhey Construction ensured compliance with all industrial safety standards and delivered the project on schedule, enabling the client to expand their operations efficiently.",
+    image: "https://placehold.co/800x500.png",
+    images: [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+    ],
+    category: "Industrial",
+    status: "Completed",
+    duration: "20 Months",
+    services: ["Site Preparation", "Steel Structure Erection", "Industrial Flooring", "Logistics Planning"],
+    hint: "warehouse building"
+  },
+  "6": {
+    id: "6",
+    title: "Educational Institute Campus",
+    description: "A modern educational campus with state-of-the-art facilities.",
+    longDescription: "The development of this Educational Institute Campus included constructing academic blocks, administrative buildings, a library, and sports facilities. The design focused on creating a conducive learning environment with natural light and ventilation. Sustainable materials were used throughout, and the campus incorporates green spaces for student recreation. Om Radhey Construction managed the phased construction to allow for partial occupancy, ensuring minimal disruption to academic activities.",
+    image: "https://placehold.co/800x500.png",
+    images: [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+    ],
+    category: "Institutional",
+    status: "Completed",
+    duration: "40 Months",
+    services: ["Master Planning", "Classroom Construction", "Laboratory Setup", "Sports Facility Development"],
+    hint: "school campus"
   }
 };
 
@@ -83,6 +117,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
   if (!project) {
     const notFoundBreadcrumbItems = [
         { label: "Home", href: "/" },
+        { label: "Projects", href: "/projects" },
         { label: "Project Not Found" }
     ];
     return (
@@ -90,21 +125,20 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
         <Breadcrumbs items={notFoundBreadcrumbItems} className="justify-center"/>
         <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
         <p className="mb-8">The project you're looking for doesn't exist or has been moved.</p>
-        {/* The Back button is now part of Breadcrumbs */}
       </div>
     );
   }
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
-    { label: "Projects", href: "/#projects" },
+    { label: "Projects", href: "/projects" }, // Updated breadcrumb
     { label: project.title },
   ];
 
   return (
     <div className="bg-secondary/30 py-12 md:py-20">
       <div className="container mx-auto px-4">
-        <Breadcrumbs items={breadcrumbItems} /> {/* Replaced old back button */}
+        <Breadcrumbs items={breadcrumbItems} /> 
 
         <Card className="shadow-xl overflow-hidden">
           <CardHeader className="p-0 relative">

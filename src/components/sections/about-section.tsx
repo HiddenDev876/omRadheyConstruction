@@ -1,6 +1,9 @@
+
 // @/components/sections/about-section.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function AboutSection() {
   const coreValues = [
@@ -43,6 +46,9 @@ export function AboutSection() {
             <p className="text-muted-foreground leading-relaxed">
               Our mission is to build not just structures, but lasting relationships based on trust, transparency, and mutual respect. We strive to exceed expectations in every project we undertake.
             </p>
+             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
+                <Link href="/about">Read More About Us</Link>
+            </Button>
           </div>
         </div>
 
