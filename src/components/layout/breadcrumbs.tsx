@@ -1,6 +1,7 @@
 // src/components/layout/breadcrumbs.tsx
 "use client";
 
+import * as React from "react"; // Explicitly import React
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -34,7 +35,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
       </Button>
       <div className="flex items-center space-x-1.5">
         {items.map((item, index) => (
-          <React.Fragment key={item.label}>
+          <React.Fragment key={`${item.label}-${index}`}> {/* Ensure unique key */}
             {index > 0 && <ChevronRight className="h-4 w-4" />}
             {item.href ? (
               <Link
