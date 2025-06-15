@@ -10,7 +10,7 @@ const teamMembers = [
     image: "https://placehold.co/300x300.png",
     bio: "With 20+ years of experience, Ramesh leads with vision and a commitment to excellence.",
     social: { linkedin: "#", twitter: "#" },
-    hint: "male ceo headshot"
+    hint: "ceo portrait"
   },
   {
     name: "Ms. Sunita Sharma",
@@ -18,7 +18,7 @@ const teamMembers = [
     image: "https://placehold.co/300x300.png",
     bio: "Sunita brings innovative design and sustainable practices to every project.",
     social: { linkedin: "#", twitter: "#" },
-    hint: "female architect headshot"
+    hint: "architect portrait"
   },
   {
     name: "Mr. Vikram Singh",
@@ -26,7 +26,7 @@ const teamMembers = [
     image: "https://placehold.co/300x300.png",
     bio: "Vikram ensures all projects are executed smoothly, on time, and to the highest standards.",
     social: { linkedin: "#", twitter: "#" },
-    hint: "male operations manager headshot"
+    hint: "manager portrait"
   },
   {
     name: "Mrs. Anjali Desai",
@@ -34,7 +34,7 @@ const teamMembers = [
     image: "https://placehold.co/300x300.png",
     bio: "Anjali is dedicated to ensuring a seamless and positive experience for all our clients.",
     social: { linkedin: "#", twitter: "#" },
-    hint: "female client relations headshot"
+    hint: "executive portrait"
   }
 ];
 

@@ -22,7 +22,7 @@ const projectsData: { [key: string]: any } = {
     status: "Completed",
     duration: "24 Months",
     services: ["Architectural Design", "Structural Engineering", "Interior Finishing", "Landscaping"],
-    hint: "modern apartment building exterior"
+    hint: "modern apartment"
   },
   "2": {
     id: "2",
@@ -38,7 +38,7 @@ const projectsData: { [key: string]: any } = {
     status: "Completed",
     duration: "36 Months",
     services: ["Foundation Work", "High-Rise Construction", "Facade Engineering", "MEP Services"],
-    hint: "skyscraper office building"
+    hint: "office tower"
   },
   // Add more projects if needed, matching IDs from ProjectsGallery
 };
@@ -151,7 +151,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                         width={600}
                         height={400}
                         className="object-cover w-full aspect-video hover:scale-105 transition-transform duration-300"
-                        data-ai-hint="construction detail architecture"
+                        data-ai-hint="architecture detail"
                       />
                     </div>
                   ))}
@@ -171,4 +171,3 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
 //     id,
 //   }));
 // }
-

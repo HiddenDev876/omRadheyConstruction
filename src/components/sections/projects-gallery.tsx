@@ -12,7 +12,7 @@ const projects = [
     description: "A luxurious residential complex featuring state-of-the-art amenities and sustainable design.",
     image: "https://placehold.co/600x400.png",
     category: "Residential",
-    hint: "modern apartment building"
+    hint: "apartment complex"
   },
   {
     id: "2",
@@ -20,7 +20,7 @@ const projects = [
     description: "An iconic office tower designed for productivity and a modern work environment.",
     image: "https://placehold.co/600x400.png",
     category: "Commercial",
-    hint: "skyscraper office"
+    hint: "corporate tower"
   },
   {
     id: "3",
@@ -28,7 +28,7 @@ const projects = [
     description: "A vibrant shopping mall providing a diverse retail and entertainment experience.",
     image: "https://placehold.co/600x400.png",
     category: "Commercial",
-    hint: "shopping mall interior"
+    hint: "mall interior"
   },
    {
     id: "4",
@@ -36,7 +36,7 @@ const projects = [
     description: "Exquisite private villa with bespoke design and high-end finishes.",
     image: "https://placehold.co/600x400.png",
     category: "Residential",
-    hint: "luxury villa exterior"
+    hint: "luxury villa"
   },
 ];
 

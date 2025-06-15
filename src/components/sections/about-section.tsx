@@ -30,7 +30,7 @@ export function AboutSection() {
               width={600}
               height={400}
               className="rounded-lg shadow-xl object-cover"
-              data-ai-hint="construction team planning"
+              data-ai-hint="team meeting"
             />
           </div>
           <div className="space-y-6 animate-slide-in-from-bottom" style={{animationDelay: '0.4s'}}>

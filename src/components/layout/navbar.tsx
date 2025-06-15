@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Mail, Phone, Building2 } from "lucide-react";
+import { Menu, Mail, Phone, Building2 } from "lucide-react";
 
 const navLinks = [
   { href: "/#hero", label: "Home" },
@@ -89,15 +89,12 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-start items-center mb-8"> {/* Adjusted to remove explicit close button, SheetContent provides its own */}
                  <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
                     <Building2 className="h-8 w-8 text-primary" />
                     <span className="text-lg font-headline font-semibold text-primary">{companyName}</span>
                   </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                    <X className="h-6 w-6 text-primary" />
-                    <span className="sr-only">Close menu</span>
-                  </Button>
+                  {/* The SheetContent component itself provides a close button, so the explicit one here was removed. */}
                 </div>
                 <nav className="flex flex-col space-y-4">
                   {navLinks.map((link) => (

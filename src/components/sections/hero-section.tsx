@@ -12,7 +12,7 @@ export function HeroSection() {
         layout="fill"
         objectFit="cover"
         className="opacity-20"
-        data-ai-hint="construction site abstract"
+        data-ai-hint="site panoramic"
         priority
       />
       <div className="absolute inset-0 bg-black/30"></div> {/* Overlay for better text readability */}
