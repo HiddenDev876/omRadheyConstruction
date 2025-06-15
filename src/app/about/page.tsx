@@ -1,9 +1,11 @@
-
 // src/app/about/page.tsx
+'use client';
+
 import Image from "next/image";
 import { CheckCircle, Building, Target, Eye, Users, Award } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 const coreValues = [
   { name: "Integrity", description: "Upholding the highest ethical standards in all our dealings, ensuring transparency and honesty.", icon: Award },
@@ -39,8 +41,9 @@ export default function AboutUsPage() {
               <Image
                 src="https://placehold.co/600x450.png"
                 alt="Om Radhey Construction team planning"
-                layout="fill"
-                objectFit="cover"
+                width={600}
+                height={450}
+                className="object-cover w-full h-full"
                 data-ai-hint="construction planning"
               />
             </div>
@@ -50,7 +53,7 @@ export default function AboutUsPage() {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Founded over ten years ago, Om Radhey Construction began with a simple mission: to provide exceptional construction services built on a foundation of integrity and client satisfaction. From humble beginnings, we have grown into a respected name in the industry, known for our commitment to quality, innovation, and timely project delivery.
-              </p
+              </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our journey has been marked by a continuous pursuit of excellence, adapting to new technologies, and fostering a team of passionate professionals. We believe that every structure we build is a testament to our dedication and a step towards a better-built environment.
               </p>
@@ -89,8 +92,9 @@ export default function AboutUsPage() {
               <Image
                 src="https://placehold.co/600x450.png"
                 alt="Blueprint and construction tools"
-                layout="fill"
-                objectFit="cover"
+                width={600}
+                height={450}
+                className="object-cover w-full h-full"
                 data-ai-hint="blueprint tools"
               />
             </div>
@@ -123,12 +127,12 @@ export default function AboutUsPage() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                 Whether you're planning a new construction, a renovation, or require specialized project management, Om Radhey Construction has the expertise to bring your project to successful completion.
             </p>
-            <a
+            <Link
                 href="/discuss-project"
                 className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-accent-foreground bg-accent hover:bg-accent/90"
             >
                 Discuss Your Project
-            </a>
+            </Link>
         </section>
 
       </div>
